@@ -14,6 +14,9 @@ UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var dogWeightPicker: UIPickerView!
     var dogWeightPickerData1: [String] = [String]()
     var selectedDogWeight: [String] = [" "]
+    var dogWeightFloat: Float?
+    var caloriesNeeded: Float?
+    var calorieEquation: Float?
     
     @IBOutlet weak var calculateButton: UIButton!
     
@@ -25,6 +28,7 @@ UIPickerViewDelegate, UIPickerViewDataSource {
         
         self.dogWeightPicker.delegate = self
         self.dogWeightPicker.dataSource = self
+        
         
         let component1Array = Array(0...100)
         dogWeightPickerData1 = component1Array.map { String($0) }
@@ -54,20 +58,35 @@ UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        selectedDogWeight = [dogWeightPickerData1[row]]
+        dogWeightFloat = Float(dogWeightPickerData1[row])
+        //selectedDogWeight = [dogWeightPickerData1[row]]
+        
+        caloriesNeeded = dogWeightFloat!
+
     }
     
     
     @IBAction func weightTypeSelected(_ sender: Any) {
         
-        //TODO
+        let x = caloriesNeeded
         
+        if weightTypeSelector.selectedSegmentIndex == 0 {
+            calorieEquation = x! * 30 + 70
+        }
+        if weightTypeSelector.selectedSegmentIndex == 1 {
+            calorieEquation = x! / 2.2 * 30 + 70
+        }
     }
     
     
     @IBAction func calculateButtonClicked(_ sender: Any) {
         
-        print(selectedDogWeight)
+        if calorieEquation == nil {
+            print("please select either lbs or kg")
+        }
+        else {
+            print((calorieEquation!).rounded())
+        }
     }
     
 }
