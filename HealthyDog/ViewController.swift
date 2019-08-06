@@ -17,6 +17,7 @@ UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var calculateButton: UIButton!
     
+    @IBOutlet weak var weightTypeSelector: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,14 @@ UIPickerViewDelegate, UIPickerViewDataSource {
         
         selectedDogWeight = [dogWeightPickerData1[row]]
     }
+    
+    
+    @IBAction func weightTypeSelected(_ sender: Any) {
+        
+        //TODO
+        
+    }
+    
     
     @IBAction func calculateButtonClicked(_ sender: Any) {
         
