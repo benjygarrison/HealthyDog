@@ -13,6 +13,7 @@
 		AF01103222F1500400AC643B /* HealthyDog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF01103022F1500400AC643B /* HealthyDog.xcdatamodeld */; };
 		AF01103422F1500700AC643B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF01103322F1500700AC643B /* Assets.xcassets */; };
 		AF01103722F1500700AC643B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF01103522F1500700AC643B /* LaunchScreen.storyboard */; };
+		AF8D531C22FA1C4F00786F25 /* calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8D531B22FA1C4F00786F25 /* calculations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AF01103322F1500700AC643B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF01103622F1500700AC643B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF01103822F1500700AC643B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF8D531B22FA1C4F00786F25 /* calculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				AF01102922F1500400AC643B /* AppDelegate.swift */,
 				AF01102B22F1500400AC643B /* ViewController.swift */,
+				AF8D531B22FA1C4F00786F25 /* calculations.swift */,
 				AF01102D22F1500400AC643B /* Main.storyboard */,
 				AF01103322F1500700AC643B /* Assets.xcassets */,
 				AF01103522F1500700AC643B /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				AF01102C22F1500400AC643B /* ViewController.swift in Sources */,
 				AF01102A22F1500400AC643B /* AppDelegate.swift in Sources */,
 				AF01103222F1500400AC643B /* HealthyDog.xcdatamodeld in Sources */,
+				AF8D531C22FA1C4F00786F25 /* calculations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
