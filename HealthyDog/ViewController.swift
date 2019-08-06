@@ -13,6 +13,7 @@ UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var dogWeightPicker: UIPickerView!
     var dogWeightPickerData1: [String] = [String]()
+    var selectedDogWeight: [String] = [" "]
     
     @IBOutlet weak var calculateButton: UIButton!
     
@@ -50,12 +51,14 @@ UIPickerViewDelegate, UIPickerViewDataSource {
         return dogWeightPickerData1[row]
     }
     
-    //func pickerView( _ pickerView: UIPickerView, //didSelectRow row: Int, inComponent component: //Int) {
-    //}
+    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        selectedDogWeight = [dogWeightPickerData1[row]]
+    }
     
     @IBAction func calculateButtonClicked(_ sender: Any) {
         
-        print("yo")
+        print(selectedDogWeight)
     }
     
 }
