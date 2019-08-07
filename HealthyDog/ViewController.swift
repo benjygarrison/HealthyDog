@@ -30,7 +30,7 @@ UIPickerViewDelegate, UIPickerViewDataSource {
         self.dogWeightPicker.dataSource = self
         
         
-        let component1Array = Array(0...100)
+        let component1Array = Array(1...100)
         dogWeightPickerData1 = component1Array.map { String($0) }
 
     }
@@ -68,13 +68,11 @@ UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBAction func weightTypeSelected(_ sender: Any) {
         
-        let x = caloriesNeeded
-        
         if weightTypeSelector.selectedSegmentIndex == 0 {
-            calorieEquation = x! * 30 + 70
+            calorieEquation = caloriesNeeded! * 30 + 70
         }
         if weightTypeSelector.selectedSegmentIndex == 1 {
-            calorieEquation = x! / 2.2 * 30 + 70
+            calorieEquation = caloriesNeeded! / 2.2 * 30 + 70
         }
     }
     
@@ -84,8 +82,14 @@ UIPickerViewDelegate, UIPickerViewDataSource {
         if calorieEquation == nil {
             print("please select either lbs or kg")
         }
+        if weightTypeSelector.selectedSegmentIndex == -1 {
+                print("please select either lbs or kg")
+        }
         else {
             print((calorieEquation!).rounded())
+            dogWeightPicker.selectRow(0, inComponent: 0, animated: true);
+            dogWeightPicker.reloadAllComponents();
+            weightTypeSelector.selectedSegmentIndex = -1;
         }
     }
     
