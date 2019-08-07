@@ -13,10 +13,10 @@ UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var dogWeightPicker: UIPickerView!
     var dogWeightPickerData1: [String] = [String]()
-    var selectedDogWeight: [String] = [" "]
-    var dogWeightFloat: Float?
-    var caloriesNeeded: Float?
-    var calorieEquation: Float?
+    //var selectedDogWeight: [String] = [" "]
+    var dogWeightFloat: Float = 0.0
+    var caloriesNeeded: Float = 1.0
+    var calorieEquation: Float = 0.0
     
     @IBOutlet weak var calculateButton: UIButton!
     
@@ -32,7 +32,7 @@ UIPickerViewDelegate, UIPickerViewDataSource {
         
         let component1Array = Array(1...100)
         dogWeightPickerData1 = component1Array.map { String($0) }
-
+        
     }
 
     
@@ -53,40 +53,41 @@ UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 
+        caloriesNeeded = 1
+        
         return dogWeightPickerData1[row]
     }
     
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        dogWeightFloat = Float(dogWeightPickerData1[row])
-        //selectedDogWeight = [dogWeightPickerData1[row]]
-        
-        caloriesNeeded = dogWeightFloat!
+        dogWeightFloat = Float(dogWeightPickerData1[row])!
 
+        caloriesNeeded = dogWeightFloat
+        
     }
     
     
     @IBAction func weightTypeSelected(_ sender: Any) {
         
         if weightTypeSelector.selectedSegmentIndex == 0 {
-            calorieEquation = caloriesNeeded! * 30 + 70
+            calorieEquation = caloriesNeeded / 2.2 * 30 + 70
         }
         if weightTypeSelector.selectedSegmentIndex == 1 {
-            calorieEquation = caloriesNeeded! / 2.2 * 30 + 70
+            calorieEquation = caloriesNeeded * 30 + 70
         }
     }
     
     
     @IBAction func calculateButtonClicked(_ sender: Any) {
         
-        if calorieEquation == nil {
-            print("please select either lbs or kg")
-        }
+        //if calorieEquation == nil {
+        //    print("please select either lbs or kg")
+        //}
         if weightTypeSelector.selectedSegmentIndex == -1 {
                 print("please select either lbs or kg")
         }
         else {
-            print((calorieEquation!).rounded())
+            print((calorieEquation).rounded())
             dogWeightPicker.selectRow(0, inComponent: 0, animated: true);
             dogWeightPicker.reloadAllComponents();
             weightTypeSelector.selectedSegmentIndex = -1;
