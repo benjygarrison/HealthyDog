@@ -22,6 +22,12 @@ UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var weightTypeSelector: UISegmentedControl!
     
+    @IBOutlet weak var caloriesLabel: UILabel!
+    
+    
+    
+    //On load
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
@@ -80,14 +86,14 @@ UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBAction func calculateButtonClicked(_ sender: Any) {
         
-        //if calorieEquation == nil {
-        //    print("please select either lbs or kg")
-        //}
+        
         if weightTypeSelector.selectedSegmentIndex == -1 {
                 print("please select either lbs or kg")
         }
         else {
             print((calorieEquation).rounded())
+            caloriesLabel.text = "Your dog needs "  + calorieEquation.rounded().description + " calories per day!";
+            caloriesLabel.sizeToFit();
             dogWeightPicker.selectRow(0, inComponent: 0, animated: true);
             dogWeightPicker.reloadAllComponents();
             weightTypeSelector.selectedSegmentIndex = -1;
