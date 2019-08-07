@@ -88,7 +88,8 @@ UIPickerViewDelegate, UIPickerViewDataSource {
         
         
         if weightTypeSelector.selectedSegmentIndex == -1 {
-                print("please select either lbs or kg")
+                caloriesLabel.text = "Please select either lbs or kg."
+            caloriesLabel.sizeToFit()
         }
         else {
             print((calorieEquation).rounded())
